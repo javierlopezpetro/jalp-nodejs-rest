@@ -31,10 +31,10 @@ export const getProducto = async (req, res) => {
 
 export const postProductos = async (req, res) => {
   try {
-    const { nombre, precio } = req.body;
+    const { idproducto, nombre, precio } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO producto (nombre, precio) VALUES(?, ?)",
-      [nombre, precio]
+      "INSERT INTO producto (idproducto, nombre, precio) VALUES(?, ?, ?)",
+      [idproducto, nombre, precio]
     );
     res.send({ id: rows.insertId, nombre, precio });
   } catch (error) {
