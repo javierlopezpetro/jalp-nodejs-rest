@@ -36,7 +36,7 @@ export const postProductos = async (req, res) => {
       "INSERT INTO producto (idproducto, nombre, precio) VALUES(?, ?, ?)",
       [idproducto, nombre, precio]
     );
-    res.send({ id: idproducto, nombre, precio });
+    res.send({ idproducto, nombre, precio });
   } catch (error) {
     return res.status(500).json({
       message: "Algo salió mal",
